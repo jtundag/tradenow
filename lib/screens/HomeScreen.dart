@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tradenow/screens/tabs/TodaysCallTab.dart';
+import 'package:tradenow/widgets/TNAppBar.dart';
+import 'package:tradenow/widgets/TNTabBar.dart';
 
 class HomeScreen extends StatefulWidget{
     @override
@@ -10,6 +12,7 @@ class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
     
     TabController _mainTabController;
+    int _currentIndex = 0;
 
     @override
     void initState(){
@@ -17,33 +20,20 @@ class _HomeScreenState extends State<HomeScreen>
 
         _mainTabController = TabController(
             vsync: this,
-            length: 3
+            length: 3,
+            initialIndex: _currentIndex
         );
     }
     
     @override
     Widget build(BuildContext context){
         return Scaffold(
-            appBar: AppBar(
-                title: Text("Trade Now"),
-                centerTitle: true,
-                bottom: TabBar(
-                    controller: _mainTabController,
-                    tabs: <Widget>[
-                        Tab(
-                            icon: Icon(Icons.calendar_today),
-                        ),
-                        Tab(
-                            icon: Icon(Icons.history),
-                        ),
-                        Tab(
-                            icon: Icon(Icons.info),
-                        )
-                    ],
-                )
-            ),
-            body: Stack(
+            body: Column(
                 children: <Widget>[
+                    TNAppBar("TradeNow"),
+                    TNTabBar(
+                        controller: _mainTabController
+                    ),
                     TabBarView(
                         controller: _mainTabController,
                         children: <Widget>[
@@ -63,17 +53,8 @@ class _HomeScreenState extends State<HomeScreen>
                                 child: Text("About")
                             )
                         ],
-                    ),
-                    Positioned(
-                        bottom: 0.0,
-                        left: 0.0,
-                        child: Container(
-                            height: 80.0,
-                            width: MediaQuery.of(context).size.width,
-                            color: Colors.red
-                        )
                     )
-                ],
+                ]
             )
         );
     }

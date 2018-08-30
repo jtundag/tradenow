@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tradenow/blocs/CallBloc.dart';
 import 'package:tradenow/models/Call.dart';
+import 'package:tradenow/widgets/CallCard.dart';
 
 class TodaysCallTab extends StatefulWidget{
     @override
@@ -21,14 +22,7 @@ class _TodaysCallTabState extends State<TodaysCallTab>{
                 );
                 return ListView(
                     children: snapshot.data.map((call){
-                        return Card(
-                            child: Column(
-                                children: <Widget>[
-                                    Text(call.name),
-                                    Text(call.type)
-                                ],
-                            )
-                        );
+                        return CallCard(call);
                     }).toList()
                 );
             }
