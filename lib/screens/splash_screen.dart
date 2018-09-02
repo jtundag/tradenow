@@ -1,5 +1,5 @@
 import 'dart:async';
-
+import 'package:firebase_admob/firebase_admob.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -13,7 +13,8 @@ class _SplashScreenState extends State<SplashScreen> {
     void initState(){
         super.initState();
         Timer(Duration(seconds: 3), (){
-            Navigator.of(context).pop();
+            FirebaseAdMob.instance.initialize(appId: "ca-app-pub-1255539210409743~8173908579")
+            .whenComplete(() => Navigator.of(context).pop());
         });
     }
 

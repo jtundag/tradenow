@@ -16,6 +16,9 @@
         android:name="io.flutter.app.FlutterApplication"
         android:label="tradenow"
         android:icon="@mipmap/ic_launcher">
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-1255539210409743~8173908579"/>
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
