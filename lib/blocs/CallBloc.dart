@@ -1,30 +1,22 @@
 import "dart:async";
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:tradenow/models/Call.dart';
 
 class CallBloc {
-    final StreamController _callHandlerStreamController = StreamController();
-    final StreamController<List<Call>> _callStreamController = StreamController<List<Call>>();
-    
-    Sink get getCalls => _callHandlerStreamController.sink;
-    Stream<List<Call>> get calls => _callStreamController.stream;
+    final StreamController<QuerySnapshot> _callSnapshotStreamController = StreamController();
+    final StreamController<QuerySnapshot> _callSnapshotsController = StreamController();
 
     CallBloc(){
-        _callHandlerStreamController.stream.listen((query){
-            _callStreamController.add([
-                Call.fromJson({
-                    "name": "Text",
-                    "type": "Type",
-                    "amount": 50.0,
-                    "target": "Text",
-                    "sl": "Text",
-                })
-            ]);
+        _callSnapshotStreamController.stream.listen((snapshot) {
+            _callSnapshotsController.add(snapshot);
         });
     }
 
+    Sink<QuerySnapshot> get callSnapshots => _callSnapshotStreamController.sink;
+    Stream<QuerySnapshot> get snapshots => _callSnapshotsController.stream;
+
     void dispose(){
-        _callStreamController.close();
-        _callHandlerStreamController.close();
+        _callSnapshotStreamController.close();
     }
 }

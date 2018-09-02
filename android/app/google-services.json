@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "594659237291",
+    "firebase_url": "https://tradenow-957f5.firebaseio.com",
+    "project_id": "tradenow-957f5",
+    "storage_bucket": "tradenow-957f5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:594659237291:android:8057f52221f0d125",
+        "android_client_info": {
+          "package_name": "com.example.tradenow"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "594659237291-a14p1endhh0mq9ovm2fi7rrnqtj3cai8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBa9l3pkfkYIsku8xI3AMUKB2OOmrkz8sM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
